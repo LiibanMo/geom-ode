@@ -1,0 +1,6 @@
+# 1. Tell clangd where to find the compile_commands.json file
+CompileFlags:
+  Add: [-std=c++20, -Wall]
+# 2. This must be its own top-level block at the root indentation level!
+  CompilationDatabase: "build"
+

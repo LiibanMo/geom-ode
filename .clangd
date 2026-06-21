@@ -4,3 +4,8 @@ CompileFlags:
 # 2. This must be its own top-level block at the root indentation level!
   CompilationDatabase: "build"
 
+Completion:
+  ArgumentLists: None
+
+InlayHints:
+  Enabled: false

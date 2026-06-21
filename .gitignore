@@ -69,5 +69,12 @@ vcpkg_installed/
 Testing/
 .cache/
 
+# Linter files
+.clangd
+
 # Formatting
 .clang-format
+
+# Config files
+CLAUDE.md
+.aider*

@@ -2,10 +2,11 @@
 
 namespace geom_ode {
 
-template <typename T>
-void RungeKutta<T>::solve(const VectorField& field, float time_step,
-                          unsigned n_iter) {
+template <typename T, unsigned dim>
+void RungeKutta<T, dim>::solve(const VectorField<T, dim>& field,
+                               float time_step, unsigned n_iter) {
   for (unsigned i = 0; i < n_iter; i++) {
+    const VectorField<T, dim>& k1 = time_step * field();
   }
 }
 

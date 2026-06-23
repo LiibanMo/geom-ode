@@ -12,7 +12,7 @@ The general equation of the log change-of-variables of a multivariate distributi
 
 $$
 \begin{aligned}
-\log p(\mathbf{x}) &= \log \left(\pi(g^{-1}(\mathbf{x})) \, \left|\det\frac{\partial g^{-1}}{\partial \mathbf{x}}\right|\right) \\
+\log p(\mathbf{x}) &= \log \left(\pi(g^{-1}(\mathbf{x})) \left|\det\frac{\partial g^{-1}}{\partial \mathbf{x}}\right|\right) \\
 &= \log \pi(\mathbf{z}) + \log \left|\det\frac{\partial \mathbf{z}}{\partial \mathbf{x}}\right| \\
 &= \log \pi(\mathbf{z}) - \log \left|\det\frac{\partial \mathbf{x}}{\partial \mathbf{z}}\right| \\
 \end{aligned}
@@ -20,7 +20,7 @@ $$
 
 where $f : \mathbf{z} \mapsto \mathbf{x}$ is a local diffeomorphism about $\mathbf{z}$.
 
-Given a time step $t_n$,
+Given a time step $t_n$:
 
 $$t_{n+1} = t_n + \Delta t$$
 
@@ -33,13 +33,13 @@ $$
 By applying the Taylor expansion of $\mathbf{z}(t + \Delta t)$ we get:
 
 $$
-\mathbf{z}(t + \Delta t) = \mathbf{z}(t) + \Delta t \, f(\mathbf{z}(t), t) + O((\Delta t)^2)\,.
+\mathbf{z}(t + \Delta t) = \mathbf{z}(t) + \Delta t  f(\mathbf{z}(t), t) + O((\Delta t)^2).
 $$
 
 Therefore:
 
 $$
-\frac{\partial \mathbf{z}(t + \Delta t)}{\partial \mathbf{z}(t)} \approx I + \Delta t \, \frac{\partial f}{\partial \mathbf{z}} \,.
+\frac{\partial \mathbf{z}(t + \Delta t)}{\partial \mathbf{z}(t)} \approx I + \Delta t \frac{\partial f}{\partial \mathbf{z}}.
 $$
 
 TBC

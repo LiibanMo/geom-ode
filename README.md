@@ -30,7 +30,7 @@ $$
 \log p(\mathbf{z}(t_{n+1})) = \log \pi(\mathbf{z}(t)) - \log \left|\det\frac{\partial \mathbf{z}(t_{n+1})}{\partial \mathbf{z}(t_n)} \right|.
 $$
 
-By applying the Taylor expansion of $\mathbf{z}(t + \Delta t)$ we get:
+By applying the Taylor expansion of $\bf{z}(t + \Delta t)$ we get:
 
 $$
 \mathbf{z}(t + \Delta t) = \mathbf{z}(t) + \Delta t  f(\mathbf{z}(t), t) + O((\Delta t)^2).

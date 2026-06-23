@@ -10,11 +10,18 @@ file(GLOB_RECURSE SOURCES
     "${CMAKE_CURRENT_SOURCE_DIR}/src/*.cpp"
 )
 
+# Packages
+find_package(Torch REQUIRED)
+
 # defining library target
 add_library(geom_ode ${SOURCES})
 
-# linking include dir to target
+# including headers to geom_ode
 target_include_directories(geom_ode PUBLIC
     $<BUILD_INTERFACE:${CMAKE_CURRENT_SOURCE_DIR}/include>
     $<INSTALL_INTERFACE:include>
 )
+target_include_directories(geom_ode PRIVATE ${TORCH_INCLUDE_DIRS})
+
+# linking libraries to geom_ode
+target_link_libraries(geom_ode PRIVATE ${TORCH_LIBRARIES})

@@ -1,38 +1,58 @@
 #ifndef GEOM_ODE_GEOMETRY_H
 #define GEOM_ODE_GEOMETRY_H
 
+#include <torch/torch.h>
+
 #include <array>
+#include <concepts>
+
+#include "geom_ode/details/types.h"
 
 namespace geom_ode {
 
-template <typename T, unsigned dim>
+template <std::floating_point T, unsigned Dim>
 class Point {
+ private:
+  torch::Tensor coord_;
+
  public:
-  std::array<T, dim> coordinates{};
+  torch::Tensor coord(torch::Tensor new_coord) { this->coord_ = new_coord; }
+  torch::Tensor coord() const { return this->coord_; }
 };
 
-template <typename T, unsigned dim>
+template <std::floating_point T, unsigned Dim>
 struct PhasePoint {
-  Point<T, dim> point;
-  float time;
+  Point<T, Dim> point;
+  Unsigned<float> time;
 };
 
-template <typename T, unsigned dim>
+template <std::floating_point T, unsigned Dim>
 class TangentVector {
  public:
-  std::array<T, dim> components{};
+  std::array<T, Dim> components{};
 
-  friend TangentVector operator*(const TangentVector<T, dim>& tangent_vector,
-                                 float scalar);
+  friend TangentVector operator*(const TangentVector<T, Dim>& tangent_vector,
+                                 T scalar);
+  friend TangentVector operator*(T scalar,
+                                 const TangentVector<T, Dim>& tangent_vector);
 };
 
-template <typename T, unsigned dim>
-class Manifold {
- public:
-  float exp_map(const Point<T, dim>& point, const TangentVector<T, dim>& input);
+template <typename V, typename T, unsigned Dim>
+concept NeuralVectorField =
+    requires(V vector_field, const Point<T, Dim>& p, const Unsigned<T>& t) {
+      requires std::floating_point<T>;
 
-  float log_map(const Point<T, dim>& point, const Point<T, dim>& input);
-};
+      { vector_field.forward(p, t) } -> std::same_as<TangentVector<T, Dim>>;
+    };
+
+template <typename M, typename T, unsigned Dim>
+concept RiemannianManifold =
+    requires(M manifold, const Point<T, Dim>& p, const Point<T, Dim>& x,
+             const TangentVector<T, Dim>& v, const Unsigned<T>& t) {
+      requires std::floating_point<T>;
+      { manifold.exp_map(p, v, t) } -> std::same_as<Point<T, Dim>>;
+      { manifold.log_map(p, x, t) } -> std::same_as<TangentVector<T, Dim>>;
+    };
 
 }  // namespace geom_ode
 

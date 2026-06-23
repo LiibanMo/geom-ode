@@ -1,15 +1,14 @@
 #ifndef GEOM_ODE_SOLVER_H
 #define GEOM_ODE_SOLVER_H
 
-#include "nn.h"
+#include "geom_ode/geometry.h"
 
 namespace geom_ode {
 
-template <typename T, unsigned dim>
+template <unsigned Dim>
 class RungeKutta {
  public:
-  void solve(const VectorField<T, dim>& field, float time_step,
-             unsigned n_iter);
+  void solve(const VectorField<Dim>& field, float time_step, unsigned n_iter);
 };
 
 }  // namespace geom_ode

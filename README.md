@@ -30,7 +30,7 @@ $$
 \log p(\mathbf{z}(t_{n+1})) = \log \pi(\mathbf{z}(t)) - \log \left|\det\frac{\partial \mathbf{z}(t_{n+1})}{\partial \mathbf{z}(t_n)} \right|.
 $$
 
-By applying the Taylor expansion of $\bf{z}(t + \Delta t)$ we get:
+By applying the Taylor expansion of $z(t + \Delta t)$ we get:
 
 $$
 \mathbf{z}(t + \Delta t) = \mathbf{z}(t) + \Delta t  f(\mathbf{z}(t), t) + O((\Delta t)^2).
@@ -43,12 +43,3 @@ $$
 $$
 
 TBC
-
-## To-Do
-
-[] Define the learnable Vector Field class
-  [X] Define the initialisers for the parameters
-  [] Define the layers
-[] Implement Runge-Kutta 4th Order solver
-[] Define log likelihood loss function
-[] Start the backpropagation for neural networks

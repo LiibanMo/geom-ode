@@ -71,6 +71,7 @@ Testing/
 
 # Linter files
 .clangd
+.markdownlint.json
 
 # Formatting
 .clang-format

@@ -29,12 +29,12 @@ $$
 
 Let $a, b \in \mathcal{M}$. Now suppose $(U_a, \varphi_a)$ and $(U_b, \varphi_b)$ are coordinate charts for $a$ and $b$ respectively such that $h(U_a) \cap U_b \ne \emptyset$. Moreover, define a $h : M \to M$ such that $h(a) = b$ and $h$ is a local diffeomorphism about $a$.
 
-Define $dV_g = \sqrt{\det g} \; dx_1 \wedge \dots \wedge dx_n : \mathcal{M} \to \Lambda^n T^*\mathcal{M}$ to be the volume form of $(\mathcal M, g)$ and define $p(x)$ to be the probability density function of an arbitrary variable $x$.
+Define $dV_g = \sqrt{\det g}  dx_1 \wedge \dots \wedge dx_n : \mathcal{M} \to \Lambda^n T^*\mathcal{M}$ to be the volume form of $(\mathcal M, g)$ and define $p(x)$ to be the probability density function of an arbitrary variable $x$.
 
 The change of variable formula via the manifold volume form applied to $h(a) = b$ is
 
 $$
-p(a) \; dV_g(a) = h^*(p(b) \; dV_g(b)),
+p(a)  dV_g(a) = h^*(p(b)  dV_g(b)),
 $$
 
 where $h^*: T^r_s\mathcal{M} \to T^r_s\mathcal{M}$ is the pullback along $h$.
@@ -43,8 +43,8 @@ By definition of the pullback, the formula evaluates to become:
 
 $$
 \begin{aligned}
-p(a) \; dV_g(a) &= p(h(a)) \; (h^*dV_g)(a) \\
-&= p(b) \; |\det D_a h| \; dV_g(a) \\
+p(a)  dV_g(a) &= p(h(a))  (h^*dV_g)(a) \\
+&= p(b)  |\det D_a h|  dV_g(a) \\
 \implies p(a) &= p(b) |\det D_a h|
 \end{aligned}
 $$

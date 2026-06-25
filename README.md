@@ -41,13 +41,13 @@ where $h^*: T^r_s\mathcal{M} \to T^r_s\mathcal{M}$ is the pullback along $h$.
 
 By definition of the pullback, the formula evaluates to become:
 
-$$
+```math
 \begin{aligned}
 p(a)  dV_g(a) &= p(h(a))  (h^*dV_g)(a) \\
 &= p(b)  |\det D_a h|  dV_g(a) \\
 \implies p(a) &= p(b) |\det D_a h|
 \end{aligned}
-$$
+```
 
 By taking logs on both sides:
 

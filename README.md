@@ -4,23 +4,23 @@ Riemannian manifold-constrained Neural ODE solver built in C++
 
 ## The Setup
 
-Suppose the sampled data $X = \{x_i\}_{i \in D}$ lives on a known Riemannian $n$-manifold $(\mathcal{M}, g)$, where $D$ is the cardinality of the dataset.
+Suppose the sampled data $X = \lbrace x_i\rbrace_{i \in D}$ lives on a known Riemannian $n$-manifold $(\mathcal{M}, g)$, where $D$ is the cardinality of the dataset.
 
 Is it possible for a model to learn the flow of data given a starting simple prior?
 
 Let $z_i : [0, 1] \to \mathcal{M}$ be the curve modelling the trajectory of a point where $z_i(0)$ is sampled from a simple distribution and $z_i(1) = x_i$.
 
-Define $Z = \{z_i\}_{i \in D}$ to be the collection of such curves.
+Define $Z = \lbrace z_i\rbrace_{i \in D}$ to be the collection of such curves.
 
 ## Manifold Ordinary Equation
 
 ### Setup
 
-Let $\Delta t > 0$ be small and let $T = \{t_j : j \in \{0, 1, \dots, N\}\}$, where $N \in \mathbb{N}$, be a set of time-steps such that
+Let $\Delta t > 0$ be small and let $T = \lbrace t_j : j \in \{0, 1, \dots, N\}\rbrace$, where $N \in \mathbb{N}$, be a set of time-steps such that
 
 $$
 \begin{aligned}
-0 = t_0 < t_1 < &\dots < t_{N-1} < t_{N} = 1 \\[5pt]
+0 = t_0 < t_1 < &\dots < t_{N-1} < t_{N} = 1 \\
 t_{j+1} &= t_j + \Delta t, \quad j \in \{1, \dots, N-1\}.
 \end{aligned}
 $$
@@ -43,8 +43,8 @@ By definition of the pullback, the formula evaluates to become:
 
 $$
 \begin{aligned}
-p(a) \; dV_g(a) &= p(h(a)) \; (h^*dV_g)(a) \\[5pt]
-&= p(b) \; |\det D_a h| \; dV_g(a) \\[5pt]
+p(a) \; dV_g(a) &= p(h(a)) \; (h^*dV_g)(a) \\
+&= p(b) \; |\det D_a h| \; dV_g(a) \\
 \implies p(a) &= p(b) |\det D_a h|
 \end{aligned}
 $$
@@ -61,7 +61,7 @@ Therefore:
 
 $$
 \begin{aligned}
-\left|\det D_{\varphi_a(a)} \hat h\right| &= \left|\det D_{h(a)} \varphi_b \right| \left|\det D_a h\right| \left|\det D_a \varphi_a \right|^{-1} \\[5pt]
+\left|\det D_{\varphi_a(a)} \hat h\right| &= \left|\det D_{h(a)} \varphi_b \right| \left|\det D_a h\right| \left|\det D_a \varphi_a \right|^{-1} \\
 \implies \log p(a) &= \log p(b) + \log \left|\det D_{\varphi_a(a)} \hat{h} \right| - \log \left|\det D_{h(a)} \varphi_b\right| + \log \left|\det D_a \varphi_a \right| \\
 \end{aligned}
 $$
